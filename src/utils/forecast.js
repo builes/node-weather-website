@@ -10,6 +10,8 @@ const forecast = (latitude, longitude, callback) => {
       console.log("Unable to find location", response);
     } else {
       const data = response.body["current"];
+      const latitudeW = response.body.location.lat;
+      const longitudeW = response.body.location.lon;
       const msg =
         data.weather_descriptions[0] +
         ". It is currently degress " +
@@ -17,7 +19,11 @@ const forecast = (latitude, longitude, callback) => {
         ". It feels like " +
         data.feelslike +
         " degress out.";
-      callback(undefined, msg);
+      callback(undefined, {
+        msg,
+        latitudeW,
+        longitudeW,
+      });
     }
   });
 };

@@ -72,18 +72,26 @@ app.get("/weather", (req, res) => {
     if (error) {
       return res.send({ error });
     }
-    forecast(latitude, longitude, (error, forecastData) => {
-      if (error) {
-        return res.send({ error });
-      } else {
-        res.send({
-          location,
-          forecastData,
-        });
-        console.log(location);
-        console.log(forecastData);
+    forecast(
+      latitude,
+      longitude,
+      (error, { msg, latitudeW, longitudeW } = {}) => {
+        if (error) {
+          return res.send({ error });
+        } else {
+          res.send({
+            location,
+            msg,
+            latitudeW,
+            longitudeW,
+          });
+          console.log(location);
+          console.log(msg);
+          console.log(latitudeW);
+          console.log(longitudeW);
+        }
       }
-    });
+    );
   });
 });
 

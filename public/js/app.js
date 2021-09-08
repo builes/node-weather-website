@@ -2,6 +2,8 @@ const weatherForm = document.querySelector("form");
 const address = document.querySelector("#address");
 const msgOne = document.querySelector("#msg1");
 const msgTwo = document.querySelector("#msg2");
+const lat = document.querySelector("#lat");
+const lon = document.querySelector("#lon");
 
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -19,7 +21,9 @@ weatherForm.addEventListener("submit", (e) => {
         console.log(data.location);
         console.log(data.forecastData);
         msgOne.textContent = data.location;
-        msgTwo.textContent = data.forecastData;
+        msgTwo.textContent = data.msg;
+        lat.textContent = `latitude: ${data.latitudeW} `;
+        lon.textContent = `longitude: ${data.longitudeW} `;
       }
     });
   });
