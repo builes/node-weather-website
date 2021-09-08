@@ -6,6 +6,10 @@ const forecast = require("./utils/forecast.js");
 
 const app = express();
 
+//asi configuramos el puerto de la app que va a usar jheroku cuando hagamos el deploy
+//process.env.PORT || 3000 quiere decir que si process.env.PORT no existe utilice el valor de 3000
+const port = process.env.PORT || 3000;
+
 // Define paths for Express config
 const viewsPath = path.join(__dirname, "../templates/views");
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -104,6 +108,6 @@ app.get("*", (req, res) => {
 });
 
 //Asi iniciamos el server
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server running");
 });

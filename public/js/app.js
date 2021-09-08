@@ -10,19 +10,17 @@ weatherForm.addEventListener("submit", (e) => {
   msgOne.textContent = "Loading...";
 
   //fetch viene por defecto con js y sirve para consumir datos de una api, en nodeJS no podemos usar fetch
-  fetch(`http://localhost:3000/weather?address=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          console.log(data.error);
-          msgOne.textContent = data.error;
-        } else {
-          console.log(data.location);
-          console.log(data.forecastData);
-          msgOne.textContent = data.location;
-          msgTwo.textContent = data.forecastData;
-        }
-      });
-    }
-  );
+  fetch(`/weather?address=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        console.log(data.error);
+        msgOne.textContent = data.error;
+      } else {
+        console.log(data.location);
+        console.log(data.forecastData);
+        msgOne.textContent = data.location;
+        msgTwo.textContent = data.forecastData;
+      }
+    });
+  });
 });
