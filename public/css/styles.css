@@ -1,0 +1,52 @@
+body {
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* la propiedad flex-grow: 1; le decimos a esa caja que ocupe todo el espacio que pueda tomar */
+.main-content {
+  flex-grow: 1;
+}
+
+header {
+  margin: 50px 0px 48px 0px;
+}
+
+footer {
+  color: #888888;
+  border-top: solid 1px #eee;
+  margin-top: 15px;
+}
+
+header a {
+  color: #888888;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.portrait {
+  width: 250px;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #888888;
+  background-color: #888888;
+  color: white;
+  padding: 6px;
+}
